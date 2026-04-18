@@ -89,4 +89,14 @@ public class AuthController {
                     return ResponseEntity.status(401).body(Map.of("message", "Invalid credentials"));
                 });
     }
+
+    @GetMapping("/me")
+    public ResponseEntity<?> getCurrentUser(java.security.Principal principal) {
+        if (principal == null) {
+            return ResponseEntity.status(401).body(Map.of("message", "Not authenticated"));
+        }
+        return userRepository.findByEmail(principal.getName())
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(404).build());
+    }
 }

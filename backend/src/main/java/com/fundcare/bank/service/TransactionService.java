@@ -76,6 +76,14 @@ public class TransactionService {
         public List<Transaction> getHistory(Long accountId) {
                 Account account = accountRepository.findById(accountId)
                                 .orElseThrow(() -> new RuntimeException("Account not found"));
-                return transactionRepository.findBySenderAccountOrReceiverAccountOrderByTimestampDesc(account, account);
+                return transactionRepository.findAll().stream()
+                                .filter(t -> (t.getAccount() != null && t.getAccount().getId().equals(accountId)) ||
+                                                (t.getSenderAccount() != null
+                                                                && t.getSenderAccount().getId().equals(accountId))
+                                                ||
+                                                (t.getReceiverAccount() != null
+                                                                && t.getReceiverAccount().getId().equals(accountId)))
+                                .sorted((t1, t2) -> t2.getTimestamp().compareTo(t1.getTimestamp()))
+                                .collect(java.util.stream.Collectors.toList());
         }
 }

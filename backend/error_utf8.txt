@@ -1,0 +1,45 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.fundcare:backend >------------------------
+[INFO] Building backend 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ backend ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ backend ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 62 source files with javac [debug parameters release 17] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /D:/DEVELOP LIFE/FundCare-Bank Application/backend/src/main/java/com/fundcare/bank/service/AdminService.java:[228,57] cannot find symbol
+  symbol:   method findBySenderAccountOrReceiverAccountOrderByTimestampDesc(com.fundcare.bank.model.Account,com.fundcare.bank.model.Account)
+  location: variable transactionRepository of type com.fundcare.bank.repository.TransactionRepository
+[ERROR] /D:/DEVELOP LIFE/FundCare-Bank Application/backend/src/main/java/com/fundcare/bank/service/StatementService.java:[33,17] cannot find symbol
+  symbol:   method findBySenderAccountOrReceiverAccountOrderByTimestampDesc(com.fundcare.bank.model.Account,com.fundcare.bank.model.Account)
+  location: variable transactionRepository of type com.fundcare.bank.repository.TransactionRepository
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.617 s
+[INFO] Finished at: 2026-01-24T13:25:52+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.14.1:compile (default-compile) on project backend: Compilation failure: Compilation failure: 
+[ERROR] /D:/DEVELOP LIFE/FundCare-Bank Application/backend/src/main/java/com/fundcare/bank/service/AdminService.java:[228,57] cannot find symbol
+[ERROR]   symbol:   method findBySenderAccountOrReceiverAccountOrderByTimestampDesc(com.fundcare.bank.model.Account,com.fundcare.bank.model.Account)
+[ERROR]   location: variable transactionRepository of type com.fundcare.bank.repository.TransactionRepository
+[ERROR] /D:/DEVELOP LIFE/FundCare-Bank Application/backend/src/main/java/com/fundcare/bank/service/StatementService.java:[33,17] cannot find symbol
+[ERROR]   symbol:   method findBySenderAccountOrReceiverAccountOrderByTimestampDesc(com.fundcare.bank.model.Account,com.fundcare.bank.model.Account)
+[ERROR]   location: variable transactionRepository of type com.fundcare.bank.repository.TransactionRepository
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

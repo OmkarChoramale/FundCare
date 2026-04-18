@@ -21,6 +21,11 @@ public class Transaction {
     @JoinColumn(name = "receiver_account_id")
     private Account receiverAccount;
 
+    // Restoring for backward compatibility with old data
+    @ManyToOne
+    @JoinColumn(name = "account_id")
+    private Account account;
+
     private BigDecimal amount;
     private String description;
 
