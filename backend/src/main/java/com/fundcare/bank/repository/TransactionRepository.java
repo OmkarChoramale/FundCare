@@ -13,4 +13,6 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
         @org.springframework.data.jpa.repository.Query("SELECT SUM(t.amount) FROM Transaction t WHERE t.type = :type AND MONTH(t.timestamp) = MONTH(CURRENT_DATE) AND YEAR(t.timestamp) = YEAR(CURRENT_DATE)")
         java.math.BigDecimal sumAmountByTypeAndCurrentMonth(
                         @org.springframework.data.repository.query.Param("type") com.fundcare.bank.model.TransactionType type);
+
+        List<Transaction> findBySenderAccountOrReceiverAccountOrderByTimestampDesc(Account senderAccount, Account receiverAccount);
 }
